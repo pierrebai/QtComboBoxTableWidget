@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
    // Create columns header labels.
    list->setColumnCount(3);
-   list->setHorizontalHeaderLabels(QStringList({ "Normal Column 1", "Normal Column 2", "Combo Coumn" }));
+   list->setHorizontalHeaderLabels(QStringList({ "Normal Column 1", "Normal Column 2", "Combo Column" }));
 
    /////////////////////////////////////////////////////////////////////////
    //
@@ -59,11 +59,16 @@ int main(int argc, char **argv)
 
    /////////////////////////////////////////////////////////////////////////
    //
-   // Connect a signal to show user interaction.
+   // Connect a signal to show user interaction in the window title.
 
    list->connect(list, &QTableWidget::itemChanged, [&](QTableWidgetItem * item)
    {
-      mainWindow->setWindowTitle(item->text());
+      mainWindow->setWindowTitle(QString::asprintf("Changed combo-box element of row %d to %s", item->row(), item->text().data()));
+   });
+
+   list->connect(list, &QTableWidget::currentItemChanged, [&](QTableWidgetItem * item)
+   {
+      mainWindow->setWindowTitle(QString::asprintf("Changed selection to element of row %d, column %d", item->row(), item->column()));
    });
 
    /////////////////////////////////////////////////////////////////////////
