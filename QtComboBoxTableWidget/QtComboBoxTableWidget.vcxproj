@@ -66,6 +66,16 @@
       <AdditionalLibraryDirectories>$(QT5_DIR)msvc2017_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /D /Y $(QT5_DIR)msvc2017_64\bin\Qt5Core.dll $(OutputPath)
+xcopy /D /Y $(QT5_DIR)msvc2017_64\bin\Qt5Gui.dll $(OutputPath)
+xcopy /D /Y $(QT5_DIR)msvc2017_64\bin\Qt5Widgets.dll $(OutputPath)
+mkdir $(OutputPath)platforms
+mkdir $(OutputPath)styles
+xcopy /D /Y $(QT5_DIR)msvc2017_64\plugins\styles\qwindowsvistastyle.dll $(OutputPath)styles
+xcopy /D /Y $(QT5_DIR)msvc2017_64\plugins\platforms\qwindows.dll $(OutputPath)platforms
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -88,6 +98,16 @@
       <AdditionalLibraryDirectories>$(QT5_DIR)msvc2017_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /D /Y $(QT5_DIR)msvc2017_64\bin\Qt5Core.dll $(OutputPath)
+xcopy /D /Y $(QT5_DIR)msvc2017_64\bin\Qt5Gui.dll $(OutputPath)
+xcopy /D /Y $(QT5_DIR)msvc2017_64\bin\Qt5Widgets.dll $(OutputPath)
+mkdir $(OutputPath)platforms
+mkdir $(OutputPath)styles
+xcopy /D /Y $(QT5_DIR)msvc2017_64\plugins\styles\qwindowsvistastyle.dll $(OutputPath)styles
+xcopy /D /Y $(QT5_DIR)msvc2017_64\plugins\platforms\qwindows.dll $(OutputPath)platforms
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
