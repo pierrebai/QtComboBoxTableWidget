@@ -3,6 +3,7 @@
 #include <QtWidgets/qapplication>
 #include <QtWidgets/qmainwindow.h>
 #include <QtWidgets/qmessagebox.h>
+#include <QtWidgets/qheaderview.h>
 
 int main(int argc, char **argv)
 {
@@ -20,9 +21,13 @@ int main(int argc, char **argv)
    const QStringList combo_items({ "A", "B", "C", "D", "E", "F" });
    auto list = new QTableWidgetWithComboBox(combo_column,combo_items);
 
-   // Create columns header labels.
+   // Create columns header labels and some other non-essential settings.
    list->setColumnCount(3);
    list->setHorizontalHeaderLabels(QStringList({ "Normal Column 1", "Normal Column 2", "Combo Column" }));
+   list->setSelectionBehavior(QAbstractItemView::SelectionBehavior::SelectRows);
+   list->setSelectionMode(QAbstractItemView::SelectionMode::ExtendedSelection);
+   list->setEditTriggers(QAbstractItemView::EditTrigger::EditKeyPressed | QAbstractItemView::EditTrigger::SelectedClicked | QAbstractItemView::EditTrigger::AnyKeyPressed);
+   list->verticalHeader()->hide();
 
    /////////////////////////////////////////////////////////////////////////
    //

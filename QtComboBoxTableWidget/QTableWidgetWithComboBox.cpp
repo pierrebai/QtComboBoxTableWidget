@@ -3,7 +3,6 @@
 #include <QtCore/qtimer.h>
 
 #include <QtWidgets/qapplication.h>
-#include <QtWidgets/qheaderview.h>
 #include <QtWidgets/qstyle.h>
 
 ////////////////////////////////////////////////////////////////////////////
@@ -133,10 +132,6 @@ QSize QItemDelegateWithComboBox::sizeHint(const QStyleOptionViewItem &option, co
 QTableWidgetWithComboBox::QTableWidgetWithComboBox(int col, const QStringList& items, QWidget* parent)
    : QTableWidget(parent), combo_column(col), combo_items(items)
 {
-   setSelectionBehavior(QAbstractItemView::SelectionBehavior::SelectRows);
-   setSelectionMode(QAbstractItemView::SelectionMode::ExtendedSelection);
-   setEditTriggers(QAbstractItemView::EditTrigger::EditKeyPressed | QAbstractItemView::EditTrigger::SelectedClicked | QAbstractItemView::EditTrigger::AnyKeyPressed);
-   verticalHeader()->hide();
    setColumnCount(col + 1);
    setItemDelegateForColumn(col, new QItemDelegateWithComboBox(items, this));
 }
