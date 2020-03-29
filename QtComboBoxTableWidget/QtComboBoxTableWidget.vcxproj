@@ -111,10 +111,11 @@ xcopy /D /Y $(QT5_DIR)msvc2017_64\plugins\platforms\qwindows.dll $(OutputPath)pl
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="QTableWidgetWithComboBox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="QTableWidgetWithComboBox.h" />
+    <ProjectReference Include="..\QtAdditions\QtAdditions.vcxproj">
+      <Project>{8a2edf6b-9185-4855-830c-214b6e898295}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

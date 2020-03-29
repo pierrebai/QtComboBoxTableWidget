@@ -6,3 +6,5 @@
 /QtComboBoxTableWidget/.vs/QtComboBoxTableWidget/v15
 *.user
 /QtComboBoxTableWidget/x64/Release
+.vs
+
