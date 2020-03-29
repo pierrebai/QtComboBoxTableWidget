@@ -1,9 +1,11 @@
-#include "QTableWidgetWithComboBox.h"
+#include "dak/QtAdditions/QTableWidgetWithComboBox.h"
 
 #include <QtWidgets/qapplication>
 #include <QtWidgets/qmainwindow.h>
 #include <QtWidgets/qmessagebox.h>
 #include <QtWidgets/qheaderview.h>
+
+using namespace dak::QtAdditions;
 
 int main(int argc, char **argv)
 {
