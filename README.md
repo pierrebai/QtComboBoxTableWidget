@@ -93,4 +93,4 @@ The C++ code needed to have an always-present combo-box in a table widget is ava
 
 [https://github.com/pierrebai/QtComboBoxTableWidget](https://github.com/pierrebai/QtComboBoxTableWidget)
 
-The example is provided as a Visual Studio 2017 solution.
+The example is provided as a CMake project that generates a Visual Studio 2019 solution.
